@@ -48,13 +48,13 @@ Those results are obtained while using:
 
 ### Memory consumption over time 
 ![memory profiler](test_starlette/memory_uvicorn.png)
- <p align=center> Memory consumption over time with starlette + unicorn
+ <p align=center> Memory consumption over time with Starlette + unicorn
 
 ![memory profiler](test_fastapi/memory_fastapi.png)
- <p align=center> Memory consumption over time with FastApi + unicorn
+ <p align=center> Memory consumption over time with FastAPI + unicorn
 
 ![memory profiler](test_gunicorn/memory_gunicorn_60m.png)
- <p align=center> Memory consumption over time with FastApi + gunicorn while waiting for 1 hour after the test ends. 
+ <p align=center> Memory consumption over time with Starlette + Gunicorn while waiting for 1 hour after the test ends. 
 
 
 ### Difference in memory consumption between starting time and the test end
