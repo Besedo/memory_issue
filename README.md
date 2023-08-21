@@ -1,5 +1,5 @@
 # Inference Server Benchmarks - Memory Leak Issue
-This repository contains a series of benchmarks and tests designed to reproduce and analyze a memory leak issue in an inference server. Different hypothesis have been examined, with each hypothesis being tested in its dedicated environment.
+This repository contains a series of benchmarks and tests designed to reproduce and analyze a memory leak issue in an inference server. Different hypotheses have been examined, with each hypothesis being tested in its dedicated environment.
 
 ## Repository Structure
 Folders with tests and benchmarks:
@@ -9,7 +9,7 @@ Folders with tests and benchmarks:
 - **test_hypercorn**: Tests related to inference server based on Starlette and Hypercorn
 - **test_sync**: Tests related to inference server based on Starlette and Uvicorn. With sync and async endpoint and set to 1 the `_default_thread_limiter` in anyio
 
-Each test folder contains:
+Each test folder contains the following:
 - **Dockerfile**: Docker environment for the specific test
 - **requirements.txt**: Necessary libraries and dependencies
 - **launch.sh**: Script to initiate the test
@@ -25,20 +25,20 @@ In the root of this repository:
 git clone <REPOSITORY_LINK_HERE>
 ```
 
-2. Use make to build Docker images and reproduce results, example:
+2. Use make to build Docker images and reproduce results, for example:
 ```
 make build_test_fastapi
 make run_test_fastapi
 ```
 
 ## Test Focus
-The goal is to understand how our inference server behaves under different load conditions, with a special emphasis on memory consumption patterns, specifically looking for indications of memory leaks.
+The goal is to understand how our inference server behaves under different load conditions, with a particular emphasis on memory consumption patterns, explicitly looking for indications of memory leaks.
 
-The general workflow looks like:
-1. Setting Up the API and initialise `mprof` to capture memory usage during benchmark
+The general workflow looks like this:
+1. Setting Up the API and initialise `mprof` to capture memory usage during the benchmark
 2. After ensuring the API is up and running, a brief pause is introduced to capture memory usage before load testing
-3. Perform load testing. For different max batch of images, namely 10, 40, 80, and 120 images per request we perform benchmark. We simulate 300 users with a spawn rate of 10 users per second and each load test runs for 30 seconds
-4. After each load test iteration, a short pause is introduced to allow systems to stabilize and see if memeory consumption will decrease
+3. Perform load testing. For different max batch of images, namely 10, 40, 80, and 120 images per request we perform the benchmark. We simulate 300 users with a spawn rate of 10 users per second and each load test runs for 30 seconds
+4. After each load test iteration, a short pause is introduced to allow systems to stabilize and see if memory consumption will decrease
 5. Upon completion of all load tests, memory usage is plotted and saved  
 
 ## Observations and Results
@@ -46,20 +46,20 @@ Those results are obtained while using:
 - docker 24.0.2
 - Ubuntu 20.04
 
-### Memory consumtion over time 
+### Memory consumption over time 
 ![memory profiler](test_starlette/memory_uvicorn.png)
- <p align=center> Memory consumtion over time with starlette + unicorn
+ <p align=center> Memory consumption over time with starlette + unicorn
 
 ![memory profiler](test_fastapi/memory_fastapi.png)
- <p align=center> Memory consumtion over time with FastApi + unicorn
+ <p align=center> Memory consumption over time with FastApi + unicorn
 
 ![memory profiler](test_gunicorn/memory_gunicorn_60m.png)
- <p align=center> Memory consumtion over time with FastApi + gunicorn while waiting for 1 hour after the test ends. 
+ <p align=center> Memory consumption over time with FastApi + gunicorn while waiting for 1 hour after the test ends. 
 
 
-### Difference in memory consumtion between starting time and the test end
+### Difference in memory consumption between starting time and the test end
 
-Test |Memory after starting the API (MB) | Memory usuage after the test (MB)
+Test |Memory after starting the API (MB) | Memory usage after the test (MB)
 --- | --- | --- |
 Fastapi + Uvicorn | 54.30 | 1333.76|
 Starlette + Uvicorn | 27.96 | 1081.51|
