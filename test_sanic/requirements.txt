@@ -1,0 +1,4 @@
+sanic
+locust==2.13.0
+matplotlib
+memory-profiler==0.61.0
