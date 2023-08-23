@@ -13,5 +13,4 @@ RUN pip install --upgrade pip && \
 COPY locust_file.py .
 COPY test.jpg .
 
-#CMD ["bash", "launch.sh"]
-CMD ["sleep", "infinity"]
+CMD ["bash", "launch.sh"]
