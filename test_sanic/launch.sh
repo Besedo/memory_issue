@@ -15,7 +15,7 @@ load_test() {
 
 API_HOST="0.0.0.0"
 API_PORT=8080
-mprof run --include-children sanic main:app --host 0.0.0.0 --port 8080
+mprof run --include-children uvicorn main:app --host "$API_HOST" --port "$API_PORT" > memory_plots/log_api.txt &
 
 sleep 10;
 echo "API running"  
