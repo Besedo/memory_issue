@@ -15,7 +15,7 @@ load_test() {
 
 API_HOST="0.0.0.0"
 API_PORT=8080
-mprof run --include-children sanic main:app --host 0.0.0.0 --port 8080
+mprof run --include-children gunicorn main:app --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8080 > memory_plots/log_api.txt &
 
 sleep 10;
 echo "API running"  
