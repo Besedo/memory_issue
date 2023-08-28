@@ -1,0 +1,4 @@
+django-ninja==0.22.2
+locust==2.13.0
+matplotlib
+memory-profiler==0.61.0
