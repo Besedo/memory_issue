@@ -1,4 +1,4 @@
-litestar[standard]
+litestar==2.0.1
 locust==2.13.0
 uvicorn==0.23.2
 matplotlib

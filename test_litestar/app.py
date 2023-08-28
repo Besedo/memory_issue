@@ -12,10 +12,10 @@ class Item:
 
 
 @post(path="/infer")
-async def create_user(
+async def infer(
     data: list[Item],
 ) ->int:
     images = data
     return len(images)
 
-app = Litestar(route_handlers=[create_user])
+app = Litestar(route_handlers=[infer])

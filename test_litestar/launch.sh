@@ -1,6 +1,5 @@
 #!/bin/bash
 set -e
-ls
 load_test() {
     local api_host="$1"
     local api_port="$2"
