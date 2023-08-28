@@ -16,6 +16,8 @@ build_test_httptools:
 	docker build -t use_httptools  -f "use_httptools/Dockerfile" .
 build_test_litestar:
 	docker build -t test_litestar  -f "test_litestar/Dockerfile" .
+build_test_granian:
+	docker build -t test_granian  -f "test_granian/Dockerfile" .
 
 run_test_fastapi:
 	docker run -it --rm -p 8085:8080 -v ${PWD}/test_fastapi:/code/memory_plots --name test_fastapi test_fastapi
@@ -35,3 +37,5 @@ run_test_httptools:
 	docker run -idt --rm -p 8085:8080 -v ${PWD}/use_httptools:/code/memory_plots --name use_httptools use_httptools
 run_test_litestar:
 	docker run -idt --rm -p 8085:8080 -v ${PWD}/test_litestar:/code/memory_plots --name test_litestar test_litestar
+run_test_granian:
+	docker run -it --rm -p 8085:8080 -v ${PWD}/test_granian:/code/memory_plots --name test_granian test_granian
