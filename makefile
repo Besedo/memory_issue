@@ -10,6 +10,9 @@ build_test_sync:
 	docker build -t test_sync  -f "test_sync/Dockerfile" .
 build_test_sanic:
 	docker build -t test_sanic  -f "test_sanic/Dockerfile" .
+build_test_httptools:
+	docker build -t use_httptools  -f "use_httptools/Dockerfile" .
+
 
 run_test_fastapi:
 	docker run -it --rm -p 8085:8080 -v ${PWD}/test_fastapi:/code/memory_plots --name test_fastapi test_fastapi
@@ -23,3 +26,5 @@ run_test_sync:
 	docker run -it --rm -p 8085:8080 -p 8086:8081 -v ${PWD}/test_sync:/code/memory_plots  --name test_sync test_sync
 run_test_sanic:
 	docker run -idt --rm -p 8085:8080 -v ${PWD}/test_sanic:/code/memory_plots --name test_sanic test_sanic
+run_test_httptools:
+	docker run -idt --rm -p 8085:8080 -v ${PWD}/use_httptools:/code/memory_plots --name use_httptools use_httptools
