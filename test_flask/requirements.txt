@@ -1,0 +1,5 @@
+Flask[async]==2.3.3
+locust==2.13.0
+uvicorn==0.23.2
+matplotlib
+memory-profiler==0.61.0
