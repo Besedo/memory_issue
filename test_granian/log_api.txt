@@ -1,5 +1,0 @@
-[INFO] Starting granian
-[INFO] Listening at: 0.0.0.0:8080
-[INFO] Spawning worker-1 with pid: 10
-[INFO] Started worker-1
-[INFO] Started worker-1 runtime-1
