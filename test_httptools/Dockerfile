@@ -2,9 +2,9 @@ FROM python:3.11-slim
 
 WORKDIR /code
 
-COPY test_starlette/requirements.txt .
-COPY test_starlette/main.py .
-COPY test_starlette/launch.sh .
+COPY test_httptools/requirements.txt .
+COPY test_httptools/main.py .
+COPY test_httptools/launch.sh .
 
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir --upgrade -r requirements.txt && \

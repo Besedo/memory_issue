@@ -2,9 +2,9 @@ FROM python:3.11-slim
 
 WORKDIR /code
 
-COPY use_uvloop/requirements.txt .
-COPY use_uvloop/main.py .
-COPY use_uvloop/launch.sh .
+COPY test_uvloop/requirements.txt .
+COPY test_uvloop/main.py .
+COPY test_uvloop/launch.sh .
 
 RUN pip install --upgrade pip && \
     pip install --upgrade -r requirements.txt && \
