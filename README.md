@@ -1,6 +1,13 @@
 # Inference Server Benchmarks - Memory Leak Issue
 This repository contains a series of benchmarks and tests designed to reproduce and analyze a memory leak issue in an inference server. Different hypotheses have been examined, with each hypothesis being tested in its dedicated environment.
+## Reproduce the issue
+You can use any of the folders to reproduce the issue. But if you are looking for a quick test you can just launch:
 
+```
+make build_quick_test
+make run_quick_test
+```
+This test will take less than one minute and will generate a plot of the memory consumption that you can find in the folder "quick_test". 
 ## Repository Structure
 Folders with tests and benchmarks:
 - **test_fastapi**: Tests related to inference server based on FastAPI and Uvicorn
