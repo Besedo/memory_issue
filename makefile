@@ -22,6 +22,8 @@ build_test_granian:
 	docker build -t test_granian  -f "test_granian/Dockerfile" .
 build_test_flask:
 	docker build -t test_flask  -f "test_flask/Dockerfile" .
+build_quick_test:
+	docker build -t quick_test  -f "quick_test/Dockerfile" .
 
 run_test_fastapi:
 	docker run -it --rm -p 8085:8080 -v ${PWD}/test_fastapi:/code/memory_plots --name test_fastapi test_fastapi
@@ -47,3 +49,5 @@ run_test_granian:
 	docker run -it --rm -p 8085:8080 -v ${PWD}/test_granian:/code/memory_plots --name test_granian test_granian
 run_test_flask:
 	docker run -it --rm -p 8085:8080 -v ${PWD}/test_flask:/code/memory_plots --name test_flask test_flask
+run_quick_test:
+	docker run -idt --rm -p 8085:8080 -v ${PWD}/quick_test:/code/memory_plots --name quick_test quick_test
