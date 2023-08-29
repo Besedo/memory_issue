@@ -13,9 +13,9 @@ build_test_django_ninja:
 build_test_sanic:
 	docker build -t test_sanic  -f "test_sanic/Dockerfile" .
 build_test_httptools:
-	docker build -t use_httptools  -f "use_httptools/Dockerfile" .
+	docker build -t test_httptools  -f "test_httptools/Dockerfile" .
 build_test_uvloop:
-	docker build -t use_uvloop  -f "use_uvloop/Dockerfile" .
+	docker build -t test_uvloop  -f "test_uvloop/Dockerfile" .
 build_test_litestar:
 	docker build -t test_litestar  -f "test_litestar/Dockerfile" .
 build_test_granian:
@@ -38,9 +38,9 @@ run_test_django_ninja:
 run_test_sanic:
 	docker run -idt --rm -p 8085:8080 -v ${PWD}/test_sanic:/code/memory_plots --name test_sanic test_sanic
 run_test_httptools:
-	docker run -idt --rm -p 8085:8080 -v ${PWD}/use_httptools:/code/memory_plots --name use_httptools use_httptools
+	docker run -idt --rm -p 8085:8080 -v ${PWD}/test_httptools:/code/memory_plots --name test_httptools test_httptools
 run_test_uvloop:
-	docker run -it --rm -p 8085:8080 -v ${PWD}/use_uvloop:/code/memory_plots --name use_uvloop use_uvloop
+	docker run -it --rm -p 8085:8080 -v ${PWD}/test_uvloop:/code/memory_plots --name test_uvloop test_uvloop
 run_test_litestar:
 	docker run -idt --rm -p 8085:8080 -v ${PWD}/test_litestar:/code/memory_plots --name test_litestar test_litestar
 run_test_granian:
