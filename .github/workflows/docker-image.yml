@@ -1,8 +1,6 @@
 name: Publish Docker image
 
-on:
-  pull_request:
-    branches: [ "main" ]
+on: ["push"]
     
 jobs:
   build:
@@ -24,4 +22,4 @@ jobs:
           context: .
           file: ./test_starlette/Dockerfile
           push: true
-          tags: memory_starlette_uvicorn:latest
+          tags: syrinecher/test_memory_consumption:v0.0.1
