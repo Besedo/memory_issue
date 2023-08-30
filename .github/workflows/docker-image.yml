@@ -24,4 +24,4 @@ jobs:
           context: .
           file: ./test_starlette/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/memory_starlette_uvicorn:latest
+          tags: memory_starlette_uvicorn:latest
