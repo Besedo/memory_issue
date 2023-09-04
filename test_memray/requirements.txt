@@ -1,0 +1,6 @@
+starlette==0.31.0
+locust==2.13.0
+uvicorn==0.23.2
+matplotlib
+memory-profiler==0.61.0
+memray==1.9.1
