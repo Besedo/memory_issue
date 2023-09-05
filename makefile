@@ -26,6 +26,8 @@ build_quick_test:
 	docker build -t quick_test  -f "quick_test/Dockerfile" .
 build_test_memray:
 	docker build -t test_memray  -f "test_memray/Dockerfile" .
+build_test_torchserve:
+	docker build -t test_torchserve  -f "test_torchserve/Dockerfile" .
 
 run_test_fastapi:
 	docker run -it --rm -p 8085:8080 -v ${PWD}/test_fastapi:/code/memory_plots --name test_fastapi test_fastapi
@@ -55,3 +57,8 @@ run_quick_test:
 	docker run -idt --rm -p 8085:8080 -v ${PWD}/quick_test:/code/memory_plots --name quick_test quick_test
 run_test_memray:
 	docker run -it --rm -p 8085:8080 -v ${PWD}/test_memray:/code/memory_plots --name test_memray test_memray
+run_test_torchserve:
+	docker run --rm --shm-size=1g \
+        --ulimit memlock=-1 \
+        --ulimit stack=67108864 \
+		-it --rm -p 8085:8080 -v ${PWD}/test_torchserve:/code/memory_plots --name test_torchserve test_torchserve
